@@ -15,9 +15,21 @@ def main(request_path, keys):
     if "fantasy_content" in result:
         final_value = result["fantasy_content"]
         for key in keys.split(","):
-            if key not in final_value:
-                raise ValueError('key "' + key + '" not found')
-            final_value = final_value[key]
+            # list
+            if isinstance(final_value, list):
+                if not key.isdigit():
+                    raise ValueError('index must be positive integer but got "' + key + '"')
+
+                final_value = final_value[int(key)]
+                continue
+
+            # dict
+            if key in final_value:
+                final_value = final_value[key]
+                continue
+
+            raise ValueError('key "' + key + '" not found')
+
         return final_value
 
     raise ValueError('key "fantasy_content" not found')
