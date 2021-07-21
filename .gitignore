@@ -1,3 +1,12 @@
+.DS_Store
+node_modules
+target
+.circleci
+.cargo*
+**/*.rs.bk
+*.iml
+.idea
+*.env
 .vscode/
 venv/
 __pycache__
