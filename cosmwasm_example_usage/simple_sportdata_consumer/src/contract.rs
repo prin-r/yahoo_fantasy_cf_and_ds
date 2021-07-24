@@ -6,7 +6,7 @@ use cosmwasm_std::{
     StdResult, Storage, WasmQuery,
 };
 use cosmwasm_std::{CanonicalAddr, HumanAddr};
-use obi::{OBIEncode,OBIDecode};
+use obi::{OBIDecode, OBIEncode};
 
 macro_rules! unwrap_query {
     ( $e:expr, $f:expr ) => {

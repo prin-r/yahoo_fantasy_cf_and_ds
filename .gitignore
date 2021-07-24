@@ -12,3 +12,6 @@ venv/
 __pycache__
 *.egg-info
 private.json
+Pipfile
+Pipfile.lock
+

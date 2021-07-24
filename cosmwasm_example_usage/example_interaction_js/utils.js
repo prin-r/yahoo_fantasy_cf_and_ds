@@ -1,5 +1,5 @@
 const { Obi } = require("@bandprotocol/bandchain.js");
-const { example_proof } = require("./proof_example.js");
+// const { example_proof } = require("./proof_example.js");
 
 const toArrU8 = (x, t = "hex") => [...Buffer.from(x, t)];
 
@@ -105,10 +105,20 @@ const encodeVerifyAndSaveResultInput = (proof) => {
     .toString("hex");
 };
 
-// console.log(encodeVerifyAndSaveResultInput(example_proof));
+const encodeCalldata = (path, keys) => {
+  const calldataObi = new Obi(`{path:string,keys:string}/{value:string}`);
+
+  const transformToObiStruct = {
+    path: path,
+    keys: keys,
+  };
+
+  return calldataObi.encodeInput(transformToObiStruct).toString("hex");
+};
 
 module.exports = {
   encodeRelayCandidateBlockInput,
   encodeAppendSignatureInput,
   encodeVerifyAndSaveResultInput,
+  encodeCalldata,
 };

@@ -1,3 +1,5 @@
+// An example showing what proof looks like
+
 const example_proof = {
   block_height: "841885",
   oracle_data_proof: {
