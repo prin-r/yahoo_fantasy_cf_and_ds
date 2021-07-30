@@ -19,7 +19,7 @@ Please see [here](index.js#L193-L207)
 
 - node index.js
 
-### Expected output
+### output
 
 example output
 
